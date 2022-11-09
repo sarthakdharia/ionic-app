@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Mechanical Machines</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- todo: add elasticsearch support -->
+<ion-content class="ion-padding">
+  <ion-refresher [disabled]="plt.is('desktop')" slot="fixed" (ionRefresh)="loadAll($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let mechanicalMachines of mechanicalMachines; trackBy: trackId" #slidingItem>
+      <ion-item (click)="view(mechanicalMachines)">
+        <ion-label text-wrap>
+          <p>{{mechanicalMachines.id}}</p>
+          <p>{{mechanicalMachines.machineName}}</p>
+          <p>{{mechanicalMachines.machineBrand}}</p>
+          <p>{{mechanicalMachines.machineType}}</p>
+          <p>{{mechanicalMachines.warranty | date:'medium'}}</p>
+          <p>{{mechanicalMachines.capacity}}</p>
+          <p>{{mechanicalMachines.length}}</p>
+          <p>{{mechanicalMachines.width}}</p>
+          <p>{{mechanicalMachines.height}}</p>
+          <!-- todo: special handling for translating enum - {{'Status.' + mechanicalMachines.status}}" -->
+          <p>{{mechanicalMachines.status}}</p>
+          <p>{{mechanicalMachines.createdOn | date:'medium'}}</p>
+          <p>{{mechanicalMachines.updatedOn | date:'medium'}}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="primary" (click)="edit(slidingItem, mechanicalMachines)"> {{ 'EDIT_BUTTON' | translate }} </ion-item-option>
+        <ion-item-option color="danger" (click)="delete(mechanicalMachines)"> {{ 'DELETE_BUTTON' | translate }} </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <ion-item *ngIf="!mechanicalMachines?.length">
+    <ion-label> No Mechanical Machines found. </ion-label>
+  </ion-item>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="new()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

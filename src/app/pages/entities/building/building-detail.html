@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Building</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-label position="fixed">ID</ion-label>
+      <div item-content>
+        <span id="id-content">{{building.id}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Category</ion-label>
+      <div item-content>
+        <span id="category-content">{{building.category}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Name</ion-label>
+      <div item-content>
+        <span id="name-content">{{building.name}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Floors</ion-label>
+      <div item-content>
+        <span id="floors-content">{{building.floors}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Created On</ion-label>
+      <div item-content>
+        <span id="createdOn-content">{{building.createdOn | date:'medium'}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Updated On</ion-label>
+      <div item-content>
+        <span id="updatedOn-content">{{building.updatedOn | date:'medium'}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Address</ion-label>
+      <div item-content *ngIf="building.address">
+        <a>{{building.address?.id}}</a>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Created By</ion-label>
+      <div item-content>{{building.createdBy?.login}}</div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Updated By</ion-label>
+      <div item-content>{{building.updatedBy?.login}}</div>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="block" color="primary" (click)="open(building)">{{ 'EDIT_BUTTON' | translate }}</ion-button>
+  <ion-button expand="block" color="danger" (click)="deleteModal(building)">{{ 'DELETE_BUTTON' | translate }}</ion-button>
+</ion-content>

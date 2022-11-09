@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Mechanical Machines</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button [disabled]="!isReadyToSave" (click)="save()" color="primary">
+        <span *ngIf="platform.is('ios')">{{'DONE_BUTTON' | translate}}</span>
+        <ion-icon name="checkmark" *ngIf="!platform.is('ios')"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form *ngIf="form" name="form" [formGroup]="form" (ngSubmit)="save()">
+    <ion-list>
+      <ion-item [hidden]="!form.id">
+        <ion-label>ID</ion-label>
+        <ion-input type="hidden" id="id" formControlName="id" readonly></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Machine Name</ion-label>
+        <ion-input type="text" name="machineName" formControlName="machineName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Machine Brand</ion-label>
+        <ion-input type="text" name="machineBrand" formControlName="machineBrand"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Machine Type</ion-label>
+        <ion-input type="text" name="machineType" formControlName="machineType"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Warranty</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY HH:mm" formControlName="warranty" id="field_warranty"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Capacity</ion-label>
+        <ion-input type="number" name="capacity" formControlName="capacity"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Length</ion-label>
+        <ion-input type="number" name="length" formControlName="length"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Width</ion-label>
+        <ion-input type="number" name="width" formControlName="width"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Height</ion-label>
+        <ion-input type="number" name="height" formControlName="height"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Status</ion-label>
+        <ion-select formControlName="status" id="field_status">
+          <ion-select-option value="PERFECT">PERFECT</ion-select-option>
+          <ion-select-option value="MINOR">MINOR</ion-select-option>
+          <ion-select-option value="MAINTAINENCE">MAINTAINENCE</ion-select-option>
+          <ion-select-option value="MAJOR">MAJOR</ion-select-option>
+          <ion-select-option value="OUT_OF_USE">OUT_OF_USE</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Created On</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY HH:mm" formControlName="createdOn" id="field_createdOn"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Updated On</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY HH:mm" formControlName="updatedOn" id="field_updatedOn"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Created By</ion-label>
+        <ion-select id="field_createdBy" formControlName="createdBy" [compareWith]="compareUser" required>
+          <ion-select-option *ngIf="!form.value.createdBy" [value]="null" selected></ion-select-option>
+          <ion-select-option [value]="userOption" *ngFor="let userOption of users; trackBy: trackUserById"
+            >{{userOption.login}}</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+      <div [hidden]="!(form.controls.?.dirty && form.controls.?.invalid)">
+        <small [hidden]="!form.controls.?.errors?.required"> This field is required. </small>
+      </div>
+      <ion-item>
+        <ion-label>Updated By</ion-label>
+        <ion-select id="field_updatedBy" formControlName="updatedBy" [compareWith]="compareUser" required>
+          <ion-select-option *ngIf="!form.value.updatedBy" [value]="null" selected></ion-select-option>
+          <ion-select-option [value]="userOption" *ngFor="let userOption of users; trackBy: trackUserById"
+            >{{userOption.login}}</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+      <div [hidden]="!(form.controls.?.dirty && form.controls.?.invalid)">
+        <small [hidden]="!form.controls.?.errors?.required"> This field is required. </small>
+      </div>
+    </ion-list>
+  </form>
+</ion-content>

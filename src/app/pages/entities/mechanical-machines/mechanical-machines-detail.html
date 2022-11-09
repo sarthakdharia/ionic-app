@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Mechanical Machines</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-label position="fixed">ID</ion-label>
+      <div item-content>
+        <span id="id-content">{{mechanicalMachines.id}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Machine Name</ion-label>
+      <div item-content>
+        <span id="machineName-content">{{mechanicalMachines.machineName}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Machine Brand</ion-label>
+      <div item-content>
+        <span id="machineBrand-content">{{mechanicalMachines.machineBrand}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Machine Type</ion-label>
+      <div item-content>
+        <span id="machineType-content">{{mechanicalMachines.machineType}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Warranty</ion-label>
+      <div item-content>
+        <span id="warranty-content">{{mechanicalMachines.warranty | date:'medium'}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Capacity</ion-label>
+      <div item-content>
+        <span id="capacity-content">{{mechanicalMachines.capacity}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Length</ion-label>
+      <div item-content>
+        <span id="length-content">{{mechanicalMachines.length}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Width</ion-label>
+      <div item-content>
+        <span id="width-content">{{mechanicalMachines.width}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Height</ion-label>
+      <div item-content>
+        <span id="height-content">{{mechanicalMachines.height}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Status</ion-label>
+      <div item-content>
+        <span id="status-content">{{mechanicalMachines.status}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Created On</ion-label>
+      <div item-content>
+        <span id="createdOn-content">{{mechanicalMachines.createdOn | date:'medium'}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Updated On</ion-label>
+      <div item-content>
+        <span id="updatedOn-content">{{mechanicalMachines.updatedOn | date:'medium'}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Created By</ion-label>
+      <div item-content>{{mechanicalMachines.createdBy?.login}}</div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Updated By</ion-label>
+      <div item-content>{{mechanicalMachines.updatedBy?.login}}</div>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="block" color="primary" (click)="open(mechanicalMachines)">{{ 'EDIT_BUTTON' | translate }}</ion-button>
+  <ion-button expand="block" color="danger" (click)="deleteModal(mechanicalMachines)">{{ 'DELETE_BUTTON' | translate }}</ion-button>
+</ion-content>

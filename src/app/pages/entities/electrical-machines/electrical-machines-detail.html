@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Electrical Machines</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-label position="fixed">ID</ion-label>
+      <div item-content>
+        <span id="id-content">{{electricalMachines.id}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Equipment Name</ion-label>
+      <div item-content>
+        <span id="equipmentName-content">{{electricalMachines.equipmentName}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Equipment Brand</ion-label>
+      <div item-content>
+        <span id="equipmentBrand-content">{{electricalMachines.equipmentBrand}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Equipment Type</ion-label>
+      <div item-content>
+        <span id="equipmentType-content">{{electricalMachines.equipmentType}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Warranty</ion-label>
+      <div item-content>
+        <span id="warranty-content">{{electricalMachines.warranty | date:'medium'}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Battery Capacity</ion-label>
+      <div item-content>
+        <span id="batteryCapacity-content">{{electricalMachines.batteryCapacity}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Status</ion-label>
+      <div item-content>
+        <span id="status-content">{{electricalMachines.status}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Created On</ion-label>
+      <div item-content>
+        <span id="createdOn-content">{{electricalMachines.createdOn | date:'medium'}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Updated On</ion-label>
+      <div item-content>
+        <span id="updatedOn-content">{{electricalMachines.updatedOn | date:'medium'}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Created By</ion-label>
+      <div item-content>{{electricalMachines.createdBy?.login}}</div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Updated By</ion-label>
+      <div item-content>{{electricalMachines.updatedBy?.login}}</div>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="block" color="primary" (click)="open(electricalMachines)">{{ 'EDIT_BUTTON' | translate }}</ion-button>
+  <ion-button expand="block" color="danger" (click)="deleteModal(electricalMachines)">{{ 'DELETE_BUTTON' | translate }}</ion-button>
+</ion-content>
