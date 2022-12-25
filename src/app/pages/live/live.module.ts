@@ -5,12 +5,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { UserRouteAccessService } from 'src/app/services/auth/user-route-access.service';
-import { AccountPage } from './account.page';
+import { LivePage } from './live.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: AccountPage,
+    component: LivePage,
     data: {
       authorities: ['ROLE_USER'],
     },
@@ -20,6 +20,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [IonicModule, CommonModule, FormsModule, TranslateModule, RouterModule.forChild(routes)],
-  declarations: [AccountPage],
+  declarations: [LivePage],
 })
-export class AccountPageModule {}
+export class LivePageModule {}

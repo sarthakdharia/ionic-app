@@ -2,7 +2,7 @@
   display: inline-block;
   width: 347px;
   height: 497px;
-  background: url('../../../assets/img/jhipster_family_member_3.svg') no-repeat center top;
+  background: url('../../../assets/img/logo_1.svg') no-repeat center top;
   background-size: contain;
 }
 
@@ -14,7 +14,14 @@
   only screen and (min-resolution: 192dpi),
   only screen and (min-resolution: 2dppx) {
   .hipster {
-    background: url('../../../assets/img/jhipster_family_member_3.svg') no-repeat center top;
+    background: url('../../../assets/img/logo_1.svg') no-repeat center top;
     background-size: contain;
   }
+}
+:root {
+  --ion-safe-area-top: 20px;
+  --ion-safe-area-bottom: 22px;
+}
+ion-slide {
+  height: calc(100vh - 140px);
 }

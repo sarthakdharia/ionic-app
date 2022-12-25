@@ -12,9 +12,9 @@
   "SIGNUP": "Sign up",
   "NO_ACCOUNT_MESSAGE": "Don't have an account yet?",
 
-  "TAB1_TITLE": "Home",
-  "TAB2_TITLE": "Entities",
-  "TAB3_TITLE": "Account",
+  "TAB1_TITLE": "Dashboard",
+  "TAB2_TITLE": "Control",
+  "TAB3_TITLE": "Live",
 
   "MAP_TITLE": "Map",
 
@@ -32,7 +32,7 @@
 
   "TUTORIAL_SLIDE4_TITLE": "Ready to Play?",
 
-  "WELCOME_INTRO": "The starting point for your next hipster Ionic app",
+  "WELCOME_INTRO": "Welcome To Smart Construction",
 
   "SETTINGS_TITLE": "Settings",
   "SETTINGS_OPTION1": "Option 1",

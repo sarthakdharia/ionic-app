@@ -4,4 +4,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content [fullscreen]="true">
+  <h3>Easy to show an echarts:</h3>
+  <div echarts [options]="options" class="chart"></div>
+
+  <h3>Easy to choose a theme:</h3>
+  <div echarts [options]="options" theme="macarons" class="chart"></div>
+
+  <h3>Easy to update data asynchronous: <button (click)="getData()" style="padding: 0.5em">Get Data</button></h3>
+  <div echarts [options]="options" [merge]="mergeOption" [loading]="loading" class="chart"></div>
+</ion-content>
