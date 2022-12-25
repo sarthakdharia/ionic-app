@@ -18,7 +18,7 @@
  */
 import { ElementRef, Injectable } from '@angular/core';
 import { Observable, Observer } from 'rxjs';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 
 export type JhiFileLoadErrorType = 'not.image' | 'could.not.extract';
 
@@ -151,7 +151,7 @@ export class JhiDataUtils {
    * @returns an observable that loads file to form field and completes if sussessful
    *          or returns error as JhiFileLoadError on failure
    */
-  loadFileToForm(event: Event, editForm: FormGroup, field: string, isImage: boolean): Observable<void> {
+  loadFileToForm(event: Event, editForm: UntypedFormGroup, field: string, isImage: boolean): Observable<void> {
     return new Observable((observer: Observer<void>) => {
       const eventTarget: HTMLInputElement = event.target as HTMLInputElement;
       if (eventTarget.files && eventTarget.files[0]) {

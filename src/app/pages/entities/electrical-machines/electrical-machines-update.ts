@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { NavController, Platform, ToastController } from '@ionic/angular';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
@@ -40,7 +40,7 @@ export class ElectricalMachinesUpdatePage implements OnInit {
   constructor(
     protected activatedRoute: ActivatedRoute,
     protected navController: NavController,
-    protected formBuilder: FormBuilder,
+    protected formBuilder: UntypedFormBuilder,
     public platform: Platform,
     protected toastCtrl: ToastController,
     private userService: UserService,
