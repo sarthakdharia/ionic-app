@@ -44,6 +44,24 @@ const routes: Routes = [
         ],
       },
       {
+        path: 'map',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../map/map.module').then(m => m.MapPageModule),
+          },
+        ],
+      },
+      {
+        path: 'charts',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../charts/charts.module').then(m => m.ChartsPageModule),
+          },
+        ],
+      },
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full',

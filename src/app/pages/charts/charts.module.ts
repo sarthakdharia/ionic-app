@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { UserRouteAccessService } from 'src/app/services/auth/user-route-access.service';
-import { LivePage } from './live.page';
+import { ChartsPage } from './charts.page';
 import { NgxEchartsModule } from 'ngx-echarts';
 import * as echarts from 'echarts/core';
 import { CanvasRenderer } from 'echarts/renderers';
@@ -20,7 +20,7 @@ echarts.registerTheme('macarons', Marcaron);
 const routes: Routes = [
   {
     path: '',
-    component: LivePage,
+    component: ChartsPage,
     data: {
       authorities: ['ROLE_USER'],
     },
@@ -31,13 +31,13 @@ const routes: Routes = [
 @NgModule({
   imports: [
     IonicModule,
-    NgxEchartsModule.forRoot({ echarts: () => import('echarts') }),
+    NgxEchartsModule.forRoot({ echarts }),
     HttpClientModule,
     CommonModule,
     FormsModule,
     TranslateModule,
     RouterModule.forChild(routes),
   ],
-  declarations: [LivePage],
+  declarations: [ChartsPage],
 })
-export class LivePageModule {}
+export class ChartsPageModule {}

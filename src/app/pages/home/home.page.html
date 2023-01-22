@@ -91,17 +91,13 @@
   </ion-segment>
   <ion-content class="ion-padding">
     <ion-slides #slides (ionSlideDidChange)="slideChanged()" scrollbar="true">
+      <ion-slide>First Segment</ion-slide>
+      <ion-slide>Second Segment</ion-slide>
       <ion-slide>
         <ion-content [fullscreen]="true">
-          <ion-card>
-            <ion-card-header> Line Chart </ion-card-header>
-            <ion-card-content>
-              <canvas #barCanvas style="position: relative; height: 20px; width: 40px"></canvas>
-            </ion-card-content> </ion-card
-        ></ion-content>
+          <div id="map"></div>
+        </ion-content>
       </ion-slide>
-      <ion-slide>Second Segment</ion-slide>
-      <ion-slide>Third Segment</ion-slide>
       <ion-slide>Third Segment</ion-slide>
     </ion-slides>
   </ion-content>
